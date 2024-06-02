@@ -14,3 +14,15 @@ export async function createUser(user: any) {
     console.log(error);
   }
 }
+
+export async function getUserByClerkId(clerkId: string) {
+  try {
+    await connect();
+
+    const user = await User.findOne({ clerkId });
+
+    return JSON.parse(JSON.stringify(user));
+  } catch (error) {
+    console.log(error);
+  }
+}
